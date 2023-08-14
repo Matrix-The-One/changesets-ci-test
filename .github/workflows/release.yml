@@ -31,9 +31,11 @@ jobs:
           version: 8
 
       - name: Install Dependencies
-        run: pnpm install
+        run: |
+          pnpm install
+          npm config set "//registry.npmjs.org/:_authToken" "${NPM_TOKEN}"
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Publish Package
         uses: changesets/action@v1
         with:
           publish: pnpm release
