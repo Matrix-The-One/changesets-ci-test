@@ -31,14 +31,9 @@ jobs:
           version: 8
 
       - name: Install Dependencies
-        run: |
-          pnpm install
-          npm config set "//registry.npmjs.org/:_authToken" "${NPM_TOKEN}"
+        run: pnpm install
 
       - name: Publish Package
-        uses: changesets/action@v1
-        with:
-          publish: pnpm release
-        env:
-          GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm config set "//registry.npmjs.org/:_authToken" "${NPM_TOKEN}"
+          pnpm release
