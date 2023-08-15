@@ -1,5 +1,11 @@
 # changesets-ci-test
 
+## 1.0.6
+
+### Patch Changes
+
+- chore: 测试发包 3
+
 ## 1.0.5
 
 ### Patch Changes
