@@ -1,6 +1,6 @@
 {
   "name": "changesets-ci-test",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keywords": [],
   "license": "ISC",
@@ -8,8 +8,9 @@
   "main": "index.js",
   "scripts": {
     "changeset": "changeset",
-    "release": "changeset publish",
-    "ci:version": "changeset version"
+    "release": "pnpm publish",
+    "tag": "changeset tag",
+    "version": "changeset version"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2"

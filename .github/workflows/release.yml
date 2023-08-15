@@ -2,16 +2,16 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*.*.*"
 
-  workflow_dispatch:
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+permissions:
+  contents: read
 
 jobs:
   release:
-    name: Release
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install pnpm
+      - name: Install Pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -34,8 +34,14 @@ jobs:
         run: pnpm install
 
       - name: Publish Package
-        uses: changesets/action@v1
-        with:
-          publish: pnpm release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm config set "//registry.npmjs.org/:_authToken" "${NPM_TOKEN}"
+          pnpm release
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          token: ${{ secrets.G_TOKEN }}
