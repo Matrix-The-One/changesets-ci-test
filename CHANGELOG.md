@@ -1,5 +1,12 @@
 # changesets-ci-test
 
+## 1.1.0
+
+### Minor Changes
+
+- - fix: 发包测试 111
+  - refactor: 发包测试 222
+
 ## 1.0.11
 
 ### Patch Changes

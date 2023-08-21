@@ -40,7 +40,10 @@ jobs:
           npm config set "//registry.npmjs.org/:_authToken" "${NPM_TOKEN}"
           pnpm release
 
+      - name: Generate release description
+        run: pnpm release-text
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          generate_release_notes: true
+          body_path: RELEASE.md

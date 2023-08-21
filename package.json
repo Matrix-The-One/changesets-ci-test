@@ -1,18 +1,24 @@
 {
   "name": "changesets-ci-test",
-  "version": "1.0.11",
+  "version": "1.1.0",
   "description": "",
   "keywords": [],
   "license": "ISC",
   "author": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "changeset": "changeset",
     "release": "npm publish",
+    "release-text": "node ./scripts/release.mjs",
     "tag": "changeset tag && git push --follow-tags",
     "version": "changeset version"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2"
+    "@changesets/cli": "^2.26.2",
+    "mdast-util-to-string": "^4.0.0",
+    "remark-parse": "^10.0.2",
+    "remark-stringify": "^10.0.3",
+    "unified": "^11.0.2"
   }
 }
