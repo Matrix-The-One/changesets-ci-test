@@ -1,5 +1,15 @@
 # changesets-ci-test
 
+## 1.2.0
+
+### Minor Changes
+
+- feat: 发包测试 111
+
+### Patch Changes
+
+- 发包测试 222
+
 ## 1.1.2
 
 ### Patch Changes
